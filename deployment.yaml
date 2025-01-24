@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-go-user
+spec:
+  selector:
+    matchLabels:
+      app: k8s-go-user
+  template:
+    metadata:
+      labels:
+        app: k8s-go-user
+    spec:
+      containers:
+      - name: k8s-go-user
+        image: alptht/k8s-go-user:multistage3
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 8081
+  replicas: 4

@@ -43,7 +43,13 @@ docker push alptht/k8s-go-user:multistage
 kubectl create deployment k8s-go-user-deployment --image=alptht/k8s-go-user:multistage
 
 ### Show deployments
-kubectl get deploy
+kubectl get deployment
+
+### Edit deployment
+kubectl edit deployment nginx-depl
+
+### Show deployment as yaml
+kubectl get deployment deplname -o yaml
 
 ### Create Service
 kubectl expose deployment k8s-go-user-deployment --port=8081
@@ -53,6 +59,9 @@ kubectl expose deployment k8s-go-user-deployment --type=LoadBalancer --port=8081
 ### List Services
 kubectl get services
 
+### Get Replicaset
+kubectl get replicaset
+
 ### Delete Service
 kubectl delete svc k8s-go-user-deployment
 
@@ -61,6 +70,12 @@ kubectl scale deployment k8s-go-user-deployment --replicas=4
 
 ### Get Pods
 kubectl get pods -o wide
+
+### Get Logs
+kubectl logs podName
+
+### Check Inside Pod
+kubectl exec -it podname -- bin/bash 
 
 ### Minikube problem fix for sending request
 minikube service k8s-go-user

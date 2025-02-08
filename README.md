@@ -70,6 +70,7 @@ kubectl scale deployment k8s-go-user-deployment --replicas=4
 
 ### Get Pods
 kubectl get pods -o wide
+kubectl get pods --watch
 
 ### Get Logs
 kubectl logs podName
@@ -82,6 +83,9 @@ minikube service k8s-go-user
 
 ### Describe deployment
 kubectl describe deployment 
+
+### Create a namespace
+kubectl create namespace my-namespace
 
 ### Delete everything(in Minikube kubernetes service will also be deleted, but automaticly recreated)
 kubectl delete all --all
@@ -97,3 +101,7 @@ kubectl apply -f service.yaml
 ### Delete deployment and service
 kubectl delete -f deployment.yaml
 kubectl delete -f service.yaml
+
+### Base64 through shell
+echo -n 'username' | base64
+echo -n 'password' | base64
